@@ -315,3 +315,20 @@ app.get("/api/download/:name", (req, res)=>{
 });
 
 app.listen(PORT, ()=> console.log(`✅ Server at http://localhost:${PORT}`));
+const express = require("express");
+const path = require("path");
+const app = express();
+
+const PORT = process.env.PORT || 10000;
+
+// "public" folder ko static serve karna
+app.use(express.static(path.join(__dirname, "public")));
+
+// Root route -> index.html serve kare
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});
