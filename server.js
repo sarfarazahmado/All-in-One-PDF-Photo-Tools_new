@@ -314,7 +314,6 @@ app.get("/api/download/:name", (req, res)=>{
   res.download(filePath, req.params.name, ()=> cleanup(filePath));
 });
 
-app.listen(PORT, ()=> console.log(`✅ Server at http://localhost:${PORT}`));
 const express = require("express");
 const path = require("path");
 const app = express();
